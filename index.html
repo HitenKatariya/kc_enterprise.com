@@ -1,90 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rowhouse for Sale</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Roboto', sans-serif;
-            background: #fafafa;
+            background: linear-gradient(120deg, #f0f0f0, #d9d9d9);
             color: #333;
         }
+
         header {
-            background: #003366;
+            background: linear-gradient(90deg, #003366, #004080);
             color: #fff;
             padding: 10px 20px;
             position: fixed;
             top: 0;
             width: 100%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: background 0.5s ease;
         }
+
         header h1 {
             margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            display: flex;
+            align-items: center;
         }
+
+        header i {
+            margin-right: 10px;
+            font-size: 24px;
+            color: #ffcc00;
+        }
+
         header a {
             color: #fff;
             text-decoration: none;
             margin-left: 20px;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
+
         header a:hover {
+            color: #ffcc00;
             text-decoration: underline;
         }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-buttons a {
+            background: #004080;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 30px;
+            margin-left: 10px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .header-buttons a:hover {
+            background: #00294d;
+            transform: scale(1.05);
+        }
+
         .container {
             width: 85%;
             margin: auto;
-            overflow: hidden;
             padding: 30px 0;
-            margin-top: 80px; /* To prevent overlap with header */
+            margin-top: 100px;
+            animation: fadeIn 1s ease-in-out;
         }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .rowhouse-details {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
         }
+
         .rowhouse-details img {
             width: 100%;
             max-width: 500px;
             border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
         }
+
+        .rowhouse-details img:hover {
+            transform: scale(1.02);
+        }
+
         .details {
             flex: 1;
-            max-width: 500px;
+            max-width: 700px;
             padding: 20px;
             background: #fff;
             border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
         }
+
+        .details:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+
         .details h2 {
             margin-top: 0;
-            color: #222;
+            color: #003366;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
         }
+
         .details p {
             margin: 12px 0;
+            line-height: 1.6;
+            color: #555;
         }
-        .details a {
-            display: inline-block;
-            margin-top: 15px;
+
+        .feature-section {
+            margin-top: 30px;
+            background: #e6e6e6;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-section h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #004080;
+            font-weight: 700;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .feature-item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-item i {
+            font-size: 36px;
             color: #003366;
-            text-decoration: none;
-            font-weight: bold;
+            margin-bottom: 10px;
         }
-        .details a:hover {
-            text-decoration: underline;
+
+        .feature-item h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
         }
+
+        .feature-item p {
+            font-size: 14px;
+            color: #555;
+        }
+
         .footer {
             background: #222;
             color: #fff;
@@ -93,41 +219,129 @@
             position: relative;
             width: 100%;
             bottom: 0;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+            transition: background 0.3s ease;
         }
+
+        .footer:hover {
+            background: #1a1a1a;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
         .footer a {
             color: #fff;
             text-decoration: none;
             margin: 0 15px;
+            font-size: 24px;
+            transition: color 0.3s ease;
         }
+
         .footer a:hover {
+            color: #ffcc00;
             text-decoration: underline;
+        }
+
+        .footer .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+            font-size: 24px;
+            color: #fff;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: #ffcc00;
+            transform: scale(1.1);
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1>Rowhouse Sales</h1>
-        <nav>
+        <h1><i class="fas fa-home"></i> Rowhouse Sales</h1>
+        <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="contact.html">Contact</a>
         </nav>
+        <div class="header-buttons">
+            <a href="login.html">Login</a>
+            <a href="signup.html">Signup</a>
+        </div>
     </header>
     <div class="container">
         <div class="rowhouse-details">
             <img src="home.jpg" alt="Rowhouse Image">
             <div class="details">
                 <h2>Beautiful Rowhouse in Prime Location</h2>
-                <p><strong>Price:</strong> $500,000</p>
-                <p><strong>Address:</strong> 123 Dream Lane, Suite 45, Los Angeles, CA</p>
+                <p><strong>Price:</strong> ₹27,99,000</p>
+                <p><strong>Address:</strong> Shantikunj Recidency, Kapodra-kosmadi road, behind Apple plaza, Ankleshwar</p>
                 <p><strong>Size:</strong> 2500 sq ft</p>
                 <p><strong>Features:</strong> 4 Bedrooms, 3 Bathrooms, Modern Kitchen, Spacious Living Room, Backyard Garden</p>
                 <p><strong>Description:</strong> This beautiful rowhouse offers luxury living in a prime location. With modern amenities and spacious rooms, it is the perfect home for families.</p>
+
+                <div class="feature-section">
+                    <h3>Additional Features</h3>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-piggy-bank"></i>
+                            <h4>Loan Facility</h4>
+                            <p>Easy financing options available.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-door-closed"></i>
+                            <h4>Attractive Main Gate</h4>
+                            <p>Stylish entry gate enhancing curb appeal.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-seedling"></i>
+                            <h4>Lovely Garden</h4>
+                            <p>Well-maintained garden for relaxation.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>N.A. Plan Pass</h4>
+                            <p>Plan passed and title clear property.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-palette"></i>
+                            <h4>Exclusivity in Design</h4>
+                            <p>High-quality tiles and beautiful decor.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tint"></i>
+                            <h4>Overhead Water Tank</h4>
+                            <p>Ample water storage for everyday needs.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tools"></i>
+                            <h4>Plumbing & Sanitary</h4>
+                            <p>Concealed plumbing and premium fittings.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <h4>Electrical Wiring</h4>
+                            <p>Modular switches and ISI-certified wiring.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <a href="login.html">Log in to inquire</a>
             </div>
         </div>
     </div>
     <footer class="footer">
         <p>&copy; 2024 Rowhouse Sales.<br> All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://wa.me/9687822728" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/kc_enterprise.in?igsh=cHNraXRpOTg1Yng1" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/yourpage" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
     </footer>
 </body>
+
 </html>
